@@ -28,7 +28,6 @@ def example_with_virtualenv():
         return {"requirements": req}
 
     requirements = show_requirements()
-    print("Requirements: ", requirements)
 
     @task.virtualenv(
         task_id="virtualenv_python",
