@@ -48,7 +48,7 @@ def tasks_pipeline():
 
         return {"total_order_value": total_order_value}
 
-    @task()
+    @task(multiple_outputs=True)
     def load(total_order_value: float):
         """
         #### Load task
@@ -58,9 +58,13 @@ def tasks_pipeline():
 
         print(f"Total order value is: {total_order_value:.2f}")
 
-    order_data = extract()
-    order_summary = transform(order_data)
-    load(order_summary["total_order_value"])
+    def task_pipeline_factory():
+        order_data = extract()
+        order_summary = transform(order_data)
+        load(order_summary["total_order_value"])
+        return
+
+    task_pipeline_factory()
 
 
 tasks_pipeline()

@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "example-airflow-dag"
+version = "0.1.0"
+description = ""
+authors = ["Adolfo Villalobos <amvillalobos@uc.cl>"]
+readme = "README.md"
+packages = [{include = "example_airflow_dag"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+colorama = "0.4.0"
+ccxt = "^4.1.19"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
